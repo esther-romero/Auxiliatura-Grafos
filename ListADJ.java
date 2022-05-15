@@ -15,10 +15,7 @@ public class ListADJ extends Grafo {
     }
     
     private void run(){
-        adj = new ArrayList[numNodos];
-        for (int i =0;i<numNodos;i++) {
-            adj[i] = new ArrayList<>();
-        }
+        
         
         insertarArista(0,1);
         insertarArista(0,3);
@@ -27,14 +24,11 @@ public class ListADJ extends Grafo {
         insertarArista(1,2);
         insertarArista(2,3);
 
-        vis = new boolean [numNodos];
-        recorrido  = new int [numNodos];
-
         dibujarGrafo();
         //quitarArista(0,1);
         //quitarArista(1,0);
         //dibujarGrafo();
-        System.out.println("el grafo es ruedad: "+esGrafoRueda() );
+        System.out.println("el grafo es rueda: "+esGrafoRueda() );
         System.out.println("el grafo es completo: "+esCompleto());
         System.out.println("existe bucle: "+ existeBucle() );
         System.out.println("Es grafo ciclo: "+ esGrafoCiclo() );
@@ -52,6 +46,14 @@ public class ListADJ extends Grafo {
     public ListADJ (boolean dirigido, int numNodos){
         this.dirigido = dirigido;
         this.numNodos = numNodos;
+
+        adj = new ArrayList[numNodos];
+        for (int i =0;i<numNodos;i++) {
+            adj[i] = new ArrayList<>();
+        }
+
+        vis = new boolean [numNodos];
+        recorrido  = new int [numNodos];
     }
      
     public int getNumVertices(){
@@ -218,15 +220,15 @@ public class ListADJ extends Grafo {
         private int    destino;
         private double peso;
 
-        public Arista(int destino,double peso){
+        public Arista(int destino,double peso){ 
             this.destino = destino;
-            this.peso    = peso;
+            this.peso    = peso; 
         }
-        
+         
         public int getDestino(){
             return destino;
         }
-        
+         
         public double getPeso(){
             return peso;
         }
