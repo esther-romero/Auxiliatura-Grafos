@@ -5,6 +5,8 @@ public class ListADJ extends Grafo {
     private boolean dirigido;
     private int numNodos;
     private int numEdges;
+    private boolean[] vis;
+    private Arista recoHam[];
     
     public static void main(String [] args){
         ListADJ ladj = new ListADJ(false,4);
@@ -24,10 +26,15 @@ public class ListADJ extends Grafo {
         insertarArista(1,2);
         insertarArista(2,3);
 
+        vis = new boolean[numNodos];
+        recoHam  = new Arista [numNodos];
+
         dibujarGrafo();
         //quitarArista(0,1);
         //quitarArista(1,0);
-        dibujarGrafo();
+        //dibujarGrafo();
+        System.out.println("Es grafo ciclo: "+ esGrafoCiclo() );
+        System.out.println("Numero de Aristas: "+ getNumAristas() );
         System.out.println("el grafo es completo: "+esCompleto());
         System.out.println("Existe peso entre el vertice 1,6: "+getPesoArista(1,6));
         System.out.println("Existe arista entre el vertice 1,6: "+existeArista(1,6));
@@ -81,9 +88,11 @@ public class ListADJ extends Grafo {
     
     private void insertar(int i, int j, double p){
         adj[i].add(new Arista(j,p));
-        if(!dirigido)
+        numEdges++;
+        if(!dirigido){
             adj[j].add(new Arista(i,p)); 
-        
+            numEdges++;
+        }
     }
 
     public ArrayList<Arista> getAdyacentes(int vertice){
@@ -124,19 +133,17 @@ public class ListADJ extends Grafo {
     }
     
     public boolean esCompleto(){
-        int tamanio = adj[0].size();
-        for(int i=1;i<adj.length;i++){
-            int size = adj[i].size();
-            if(tamanio != size)
-                return false;
-        }
-        return true;
+        int ope = numNodos*(numNodos-1);
+        if(ope == numEdges)
+            return true;
+        return false;
     }
     
     public boolean esGrafoCiclo(){
         return false;
     }
-    
+
+
     /*
     public boolean esGrafoRueda(){
         return false;
