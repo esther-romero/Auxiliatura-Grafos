@@ -10,7 +10,7 @@ public class ListADJ extends Grafo {
     
     
     public static void main(String [] args){
-        ListADJ ladj = new ListADJ(true,5);
+        ListADJ ladj = new ListADJ(false,4);
         ladj.run();
     }
     
@@ -19,21 +19,13 @@ public class ListADJ extends Grafo {
         for (int i =0;i<numNodos;i++) {
             adj[i] = new ArrayList<>();
         }
-        /*
+        
         insertarArista(0,1);
         insertarArista(0,3);
         insertarArista(0,2);
         insertarArista(1,3);
         insertarArista(1,2);
-        insertarArista(2,3);*/
-
-        insertarArista(0,1);
-        insertarArista(0,3);
-        insertarArista(2,1);
-        insertarArista(4,1);
-        insertarArista(3,4);
-
-
+        insertarArista(2,3);
 
         vis = new boolean [numNodos];
         recorrido  = new int [numNodos];
@@ -42,13 +34,13 @@ public class ListADJ extends Grafo {
         //quitarArista(0,1);
         //quitarArista(1,0);
         //dibujarGrafo();
-        System.out.println("es completo: "+ esCompleto() );
+        System.out.println("el grafo es ruedad: "+esGrafoRueda() );
+        System.out.println("el grafo es completo: "+esCompleto());
         System.out.println("existe bucle: "+ existeBucle() );
         System.out.println("Es grafo ciclo: "+ esGrafoCiclo() );
         System.out.println("Numero de Aristas: "+ getNumAristas() );
-        System.out.println("el grafo es completo: "+esCompleto());
         System.out.println("Existe peso entre el vertice 1,6: "+getPesoArista(1,6));
-        System.out.println("Existe arista entre el vertice 1,6: "+existeArista(1,6));
+        System.out.println("Existe arista entre el vertice 10,6: "+existeArista(10,6));
         
         /*
         ArrayList<Arista> prueba = getAdyacentes(1);
@@ -199,8 +191,28 @@ public class ListADJ extends Grafo {
     }
     
     public boolean esGrafoRueda(){
-        return false;
+        int [] lista = addElemento();
+        int contRueda=0;
+        int npt=0;
+        for(int i:lista){
+            if(i != 3){
+                if(i==numNodos)
+                    contRueda++;
+                else    
+                    npt++;
+            }
+        } 
+        return contRueda>1||npt>0?false:true;
     }
+
+    private int[] addElemento(){
+        int [] res = new int [numNodos];
+        for(int i = 0; i<adj.length;i++){
+            res[i] = adj[i].size();
+        }
+        return res;
+    }
+
     
     public class Arista {
         private int    destino;
