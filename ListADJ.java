@@ -6,7 +6,7 @@ public class ListADJ extends Grafo {
     private int numNodos;
     private int numEdges;
     private boolean[] vis;
-    private Arista recoHam[];
+    private Arista reco[];
     
     public static void main(String [] args){
         ListADJ ladj = new ListADJ(false,4);
@@ -27,7 +27,7 @@ public class ListADJ extends Grafo {
         insertarArista(2,3);
 
         vis = new boolean[numNodos];
-        recoHam  = new Arista [numNodos];
+        reco  = new Arista [numNodos];
 
         dibujarGrafo();
         //quitarArista(0,1);
