@@ -12,8 +12,8 @@ public abstract class Grafo
     public abstract void dibujarGrafo();
     public abstract boolean quitarArista(int origen, int destino);
     public abstract boolean esCompleto();
+    public abstract boolean existeBucle();
     public abstract boolean esGrafoCiclo();
-    /*
     public abstract boolean esGrafoRueda();
-    public abstract boolean existeBucle();*/
+    
 }

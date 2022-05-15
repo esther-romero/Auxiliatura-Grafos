@@ -6,10 +6,11 @@ public class ListADJ extends Grafo {
     private int numNodos;
     private int numEdges;
     private boolean[] vis;
-    private Arista reco[];
+    private int recorrido[];
+    
     
     public static void main(String [] args){
-        ListADJ ladj = new ListADJ(false,4);
+        ListADJ ladj = new ListADJ(true,5);
         ladj.run();
     }
     
@@ -18,21 +19,31 @@ public class ListADJ extends Grafo {
         for (int i =0;i<numNodos;i++) {
             adj[i] = new ArrayList<>();
         }
-        
+        /*
         insertarArista(0,1);
         insertarArista(0,3);
         insertarArista(0,2);
         insertarArista(1,3);
         insertarArista(1,2);
-        insertarArista(2,3);
+        insertarArista(2,3);*/
 
-        vis = new boolean[numNodos];
-        reco  = new Arista [numNodos];
+        insertarArista(0,1);
+        insertarArista(0,3);
+        insertarArista(2,1);
+        insertarArista(4,1);
+        insertarArista(3,4);
+
+
+
+        vis = new boolean [numNodos];
+        recorrido  = new int [numNodos];
 
         dibujarGrafo();
         //quitarArista(0,1);
         //quitarArista(1,0);
         //dibujarGrafo();
+        System.out.println("es completo: "+ esCompleto() );
+        System.out.println("existe bucle: "+ existeBucle() );
         System.out.println("Es grafo ciclo: "+ esGrafoCiclo() );
         System.out.println("Numero de Aristas: "+ getNumAristas() );
         System.out.println("el grafo es completo: "+esCompleto());
@@ -108,7 +119,6 @@ public class ListADJ extends Grafo {
     }/// valor de retorno puede ser diferente
     
     public void dibujarGrafo(){
-        int n=0;
         System.out.println("\nNodo -- peso -- Nodo\n");
         for(int i=0; i<adj.length;i++){
             for (Arista u : adj[i]){
@@ -133,25 +143,64 @@ public class ListADJ extends Grafo {
     }
     
     public boolean esCompleto(){
-        int ope = numNodos*(numNodos-1);
-        if(ope == numEdges)
-            return true;
+        return ((numNodos*(numNodos-1))==numEdges)? true:false;
+    }
+
+    public boolean existeBucle(){
+        for(int i=0;i<adj.length;i++){
+            for(Arista a: adj[i]){
+                if(a.getDestino()==i)
+                    return true;
+            }
+        }
         return false;
     }
     
     public boolean esGrafoCiclo(){
-        return false;
+        boolean res=false;
+        if(!dirigido){
+            res = numEdges == (numNodos*2);
+        }else {
+            if(numEdges == numNodos){
+                int i = 0;
+                while(!res && i<numNodos){
+                    recorrido[0] = i;
+                    res = dfs(i,1,1);
+                    i++;
+                }
+            }
+        }
+        return res;
     }
 
-
-    /*
+    private boolean dfs(int v, int contNodos, int contEdges) {
+        boolean res=false;
+        vis[v] = true;
+        if(numNodos==contNodos && contEdges==contNodos) {
+            int cont=0;
+            while(!res && cont<adj[v].size()){
+                Arista u = adj[v].get(cont);
+                if(recorrido[0]==u.getDestino())
+                    res=true;
+                cont++; 
+            }
+            cont=0;
+            vis[v] = false;
+        }
+        for (Arista a : adj[v]) {
+            int u = a.getDestino();
+            if(!vis[u]) {
+                recorrido[contNodos] = u;
+                res = dfs(u,contNodos+1,contEdges+1);
+            }
+        }
+        vis[v] = false;
+        return res;
+    }
+    
     public boolean esGrafoRueda(){
         return false;
     }
-    public boolean existeBucle(){
-        return false;
-    }*/
-    
     
     public class Arista {
         private int    destino;
