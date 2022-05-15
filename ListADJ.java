@@ -7,7 +7,7 @@ public class ListADJ extends Grafo {
     private int numEdges;
     
     public static void main(String [] args){
-        ListADJ ladj = new ListADJ(true,3);
+        ListADJ ladj = new ListADJ(false,4);
         ladj.run();
     }
     
@@ -17,15 +17,26 @@ public class ListADJ extends Grafo {
             adj[i] = new ArrayList<>();
         }
         
+        insertarArista(0,1);
+        insertarArista(0,3);
+        insertarArista(0,2);
+        insertarArista(1,3);
         insertarArista(1,2);
-        insertarArista(1,0,4);
+        insertarArista(2,3);
+
+        dibujarGrafo();
+        //quitarArista(0,1);
+        //quitarArista(1,0);
+        dibujarGrafo();
+        System.out.println("el grafo es completo: "+esCompleto());
+        System.out.println("Existe peso entre el vertice 1,6: "+getPesoArista(1,6));
+        System.out.println("Existe arista entre el vertice 1,6: "+existeArista(1,6));
         
-        //System.out.println(getPesoArista(10,8));
-        
+        /*
         ArrayList<Arista> prueba = getAdyacentes(1);
         for(Arista b : prueba){
             System.out.println(b.getDestino());
-        }
+        }*/
     }
     
     public ListADJ (boolean dirigido, int numNodos){
@@ -42,13 +53,8 @@ public class ListADJ extends Grafo {
     } 
     
     public boolean existeArista(int origen, int destino) {
-        try{
-            for (Arista u : adj[origen]) {
-                if(u.getDestino()==destino)
-                    return true;
-            }
-        }catch (Exception e){
-            System.out.println("El origen esta fuera de rango "+ e.getMessage());
+        if(getPesoArista(origen, destino) != -1){
+            return true;
         }
         return false;
     }
@@ -60,29 +66,26 @@ public class ListADJ extends Grafo {
                     return u.getPeso();
             }
         }catch (Exception e){
-            System.out.println("El origen esta fuera de rango "+ e.getMessage());
+            System.out.println("El vertice origen esta fuera de rango "+ e.getMessage());
         }
         return -1;        
     }
     
     public void insertarArista(int i, int j){
-        if(dirigido)
-            adj[i].add(new Arista(j,0));
-        else{
-            adj[i].add(new Arista(j,0));
-            adj[i].add(new Arista(j,0));
-        }
+        insertar(i,j,0);
     }
     
     public void insertarArista(int i, int j, double peso){
-        if(dirigido)
-            adj[i].add(new Arista(j,peso));
-        else{
-            adj[i].add(new Arista(j,peso));
-            adj[i].add(new Arista(j,peso));
-        }
+        insertar(i,j,peso);
     }
     
+    private void insertar(int i, int j, double p){
+        adj[i].add(new Arista(j,p));
+        if(!dirigido)
+            adj[j].add(new Arista(i,p)); 
+        
+    }
+
     public ArrayList<Arista> getAdyacentes(int vertice){
         ArrayList<Arista> res = new ArrayList<>();
         try{
@@ -90,23 +93,51 @@ public class ListADJ extends Grafo {
                 res.add(u);
             }
         }catch (Exception e){
-            System.out.println("El origen esta fuera de rango "+ e.getMessage());
+            System.out.println("El vertice origen esta fuera de rango "+ e.getMessage());
         }
         return res;        
     }/// valor de retorno puede ser diferente
     
-    /*
-    public void dibujarGrafo(){}
+    public void dibujarGrafo(){
+        int n=0;
+        System.out.println("\nNodo -- peso -- Nodo\n");
+        for(int i=0; i<adj.length;i++){
+            for (Arista u : adj[i]){
+                System.out.println(" "+i+"----"+u.getPeso()+"---->"+u.getDestino());
+            }
+        }
+    }
+    
     public boolean quitarArista(int origen, int destino){
-        return false;
+        boolean res =  false;
+        try{
+            for(Arista u:adj[origen]){
+                if(u.getDestino()==destino){
+                    res = adj[origen].remove(u);
+                    return res;
+                }
+            }
+        }catch(Exception e){
+            System.out.println("El vertice origen esta fuera de rango "+ e.getMessage());
+        }
+        return res;
     }
+    
     public boolean esCompleto(){
-        return false;
+        int tamanio = adj[0].size();
+        for(int i=1;i<adj.length;i++){
+            int size = adj[i].size();
+            if(tamanio != size)
+                return false;
+        }
+        return true;
     }
-    /*
+    
     public boolean esGrafoCiclo(){
         return false;
     }
+    
+    /*
     public boolean esGrafoRueda(){
         return false;
     }
