@@ -11,14 +11,14 @@ public class ListADJ extends Grafo {
     public ListADJ (boolean dirigido, int numNodos){
         this.dirigido = dirigido;
         this.numNodos = numNodos;
+        
+        vis = new boolean [numNodos];
+        recorrido  = new int [numNodos];
 
         adj = new ArrayList[numNodos];
         for (int i =0;i<numNodos;i++) {
             adj[i] = new ArrayList<>();
         }
-
-        vis = new boolean [numNodos];
-        recorrido  = new int [numNodos];
     }
      
     public int getNumVertices(){
