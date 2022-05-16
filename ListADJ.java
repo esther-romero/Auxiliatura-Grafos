@@ -7,42 +7,7 @@ public class ListADJ extends Grafo {
     private int numEdges;
     private boolean[] vis;
     private int recorrido[];
-    
-    
-    public static void main(String [] args){
-        ListADJ ladj = new ListADJ(false,4);
-        ladj.run();
-    }
-    
-    private void run(){
-        
-        
-        insertarArista(0,1);
-        insertarArista(0,3);
-        insertarArista(0,2);
-        insertarArista(1,3);
-        insertarArista(1,2);
-        insertarArista(2,3);
 
-        dibujarGrafo();
-        //quitarArista(0,1);
-        //quitarArista(1,0);
-        //dibujarGrafo();
-        System.out.println("el grafo es rueda: "+esGrafoRueda() );
-        System.out.println("el grafo es completo: "+esCompleto());
-        System.out.println("existe bucle: "+ existeBucle() );
-        System.out.println("Es grafo ciclo: "+ esGrafoCiclo() );
-        System.out.println("Numero de Aristas: "+ getNumAristas() );
-        System.out.println("Existe peso entre el vertice 1,6: "+getPesoArista(1,6));
-        System.out.println("Existe arista entre el vertice 10,6: "+existeArista(10,6));
-        
-        /*
-        ArrayList<Arista> prueba = getAdyacentes(1);
-        for(Arista b : prueba){
-            System.out.println(b.getDestino());
-        }*/
-    }
-    
     public ListADJ (boolean dirigido, int numNodos){
         this.dirigido = dirigido;
         this.numNodos = numNodos;
@@ -65,10 +30,7 @@ public class ListADJ extends Grafo {
     } 
     
     public boolean existeArista(int origen, int destino) {
-        if(getPesoArista(origen, destino) != -1){
-            return true;
-        }
-        return false;
+        return (getPesoArista(origen, destino) != -1)? true : false;
     }
      
     public double getPesoArista(int i, int j){
@@ -110,7 +72,7 @@ public class ListADJ extends Grafo {
             System.out.println("El vertice origen esta fuera de rango "+ e.getMessage());
         }
         return res;        
-    }/// valor de retorno puede ser diferente
+    }
     
     public void dibujarGrafo(){
         System.out.println("\nNodo -- peso -- Nodo\n");
@@ -122,11 +84,12 @@ public class ListADJ extends Grafo {
     }
     
     public boolean quitarArista(int origen, int destino){
-        boolean res =  false;
+        boolean res = false;
         try{
             for(Arista u:adj[origen]){
                 if(u.getDestino()==destino){
                     res = adj[origen].remove(u);
+                    numEdges--;
                     return res;
                 }
             }
@@ -193,29 +156,8 @@ public class ListADJ extends Grafo {
     }
     
     public boolean esGrafoRueda(){
-        int [] lista = addElemento();
-        int contRueda=0;
-        int npt=0;
-        for(int i:lista){
-            if(i != 3){
-                if(i==numNodos)
-                    contRueda++;
-                else    
-                    npt++;
-            }
-        } 
-        return contRueda>1||npt>0?false:true;
+        return (numNodos-1)*4 == numEdges;
     }
-
-    private int[] addElemento(){
-        int [] res = new int [numNodos];
-        for(int i = 0; i<adj.length;i++){
-            res[i] = adj[i].size();
-        }
-        return res;
-    }
-
-    
     public class Arista {
         private int    destino;
         private double peso;
