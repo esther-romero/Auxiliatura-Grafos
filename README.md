@@ -1,4 +1,4 @@
-# Auxiliatura-Grafos
+# Auxiliatura - Teoria de Grafos
 
 ## 👩🏻‍💻 Datos del Estudiante: 
 _**Nombre completo:** Esther Romero Aguilar_
@@ -16,21 +16,21 @@ _Teoría de conceptos basicos y consideraciones que se tomaron en cuenta al mome
 
 ### 📌Grafos Completos 
 
-_Grafos dirigidos/no dirigido: se considera un grafo completo cuando de cada vertice se puede llegar a otro sin problema, es decir, para que sea completo cada par de vértices debe tener dos aristas, una de ida y otra de vuelta._
+_**Grafos dirigidos/no dirigido:** se considera un grafo completo cuando de cada vertice se puede llegar a otro sin problema, es decir, para que sea completo cada par de vértices debe tener dos aristas, una de ida y otra de vuelta en grafos dirigidos._
 <p align="center"><img width="200" src="http://matematicas.uam.es/~pablo.angulo/doc/laboratorio/_images/cell_24_sage0.png" alt="Imagen Grafo Completo"></p>
 
 ### 📌Grafos Ciclos 
 
-_Grafos no dirigido: se considera grafo ciclo cuando se parte de un vertice y pasamos por todos los vertices y aristas una sola vez, de tal modo que llegamos al vertice de partida (siendo el único que se repite)._
+_**Grafos no dirigido:** se considera grafo ciclo cuando se parte de un vertice y pasamos por todos los vertices y aristas una sola vez, de tal modo que llegamos al vertice de partida (siendo el único que se repite)._
 <p align="center"><img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Undirected_6_cycle.svg/640px-Undirected_6_cycle.svg.png" alt="Imagen Grafo Ciclo no dirigido"></p>
 
-_Grafos dirigidos: aplicamos la misma teoria de los grafos no dirigidos, sin embargo, respetando la direccion que tiene cada grafo._
+_**Grafos dirigidos:** aplicamos la misma teoria de los grafos no dirigidos, sin embargo, respetando la direccion que tiene cada grafo._
 
 <p align="center"><img width="300" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaLETu86554kcQKYyONVm8TvVzLFkzN0Bqkg&usqp=CAU" alt="Imagen Grafo Ciclo dirigido"></p>
 
 ### 📌Grafos Rueda 
 
-_Grafos dirigidos/no dirigido: se considera grafo rueda cuando el grado de cada vertice es igual a 3 ( g(v)=3 ) exceptuando el vertice rueda, que su grado es el numero de vertices -1, cabe destacar que para grafos dirigidos, tomamos al vertice rueda como fuente; de tal forma que llegamos a la conclusion que un grafo rueda es igual a (numVertices-1)*3 + (numVertices-1). Factorizando: (numVertices-1)*4, siendo el resultado igual a nuestro número de aristas._
+_**Grafos dirigidos/no dirigido:** se considera grafo rueda cuando el grado de cada vertice es igual a 3 ( g(v)=3 ) exceptuando el vertice rueda, que su grado es el numero de vertices -1, cabe destacar que para grafos dirigidos, tomamos al vertice rueda como fuente; de tal forma que llegamos a la conclusion que un grafo rueda es igual a (numVertices-1)*3 + (numVertices-1). Factorizando: (numVertices-1)*4, siendo el resultado igual a nuestro número de aristas._
 
 <p align="center"><img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Wagner_graph_ham.svg/240px-Wagner_graph_ham.svg.png" alt="Imagen Grafo Rueda"></p>
 
@@ -41,15 +41,15 @@ _Se cuenta con tres clases: Clase Abstracta Grafo, Clase ListADJ y Clase Main_
 
 <p align="center"><img width="350" src="https://github.com/esther-romero/Auxiliatura-Grafos/blob/main/img/Estructura.png" alt="Imagen Estructura"></p>
 
-_Clase Abstracta Grafo: Esta clase nos muestra todos los metodos basicos que puede realizar un grafo, sin realizar alguna implementación._
+_**Clase Abstracta Grafo:** Esta clase nos muestra todos los metodos basicos que puede realizar un grafo, sin realizar alguna implementación._
 
 <p align="center"><img width="600" src="https://github.com/esther-romero/Auxiliatura-Grafos/blob/main/img/Clase%20Grafo.png" alt="Imagen Clase abstracta"></p>
 
-_Clase ListADJ: Esta clase se encarga de la implementación de todos los métodos existentes en la clase abstracta Grafo, por tanto, extiende de Grafo._
+_**Clase ListADJ:** Esta clase se encarga de la implementación de todos los métodos existentes en la clase abstracta Grafo, por tanto, extiende de Grafo._
 
 _A su vez, se utilizo listas de adyacencia para la representacion de los grafos._
 
-_Clase Main: Es la clase principal, por donde hacemos correr todos los metodos implementados en nuestra clase ListADJ._
+_**Clase Main:** Es la clase principal, por donde hacemos correr todos los metodos implementados en nuestra clase ListADJ._
 
 ## 3) Explicación de métodos y su tipo de retorno 🚀
 
