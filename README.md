@@ -49,6 +49,17 @@ _**Clase ListADJ:** Esta clase se encarga de la implementación de todos los mé
 
 _A su vez, se utilizo listas de adyacencia para la representacion de los grafos._
 
+```
+public class ListADJ extends Grafo {
+    ArrayList<Arista> [] adj;
+    private boolean dirigido;
+    private int numNodos;
+    private int numEdges;
+    private boolean[] vis;
+    private int recorrido[];
+}    
+```
+
 _**Clase Main:** Es la clase principal, por donde hacemos correr todos los metodos implementados en nuestra clase ListADJ._
 
 ## 3) Explicación de métodos y su tipo de retorno 🚀
