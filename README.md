@@ -17,6 +17,9 @@ _Teoría de conceptos basicos y consideraciones que se tomaron en cuenta al mome
 ### 📌Grafos Completos 
 
 _**Grafos dirigidos/no dirigido:** se considera un grafo completo cuando de cada vertice se puede llegar a otro sin problema, es decir, para que sea completo cada par de vértices debe tener dos aristas, una de ida y otra de vuelta en grafos dirigidos._
+
+_Por tanto, podemos decir que para saber si un grafo es completo, vemos el numero de vertices por el numero de vertices -1, deberia ser igual a nuestro numero de aristas, definiendo: (numNodos*(numNodos-1)) = numEdges, esto aplicaría tanto para grafos dirigidos y no dirigidos._
+
 <p align="center"><img width="200" src="http://matematicas.uam.es/~pablo.angulo/doc/laboratorio/_images/cell_24_sage0.png" alt="Imagen Grafo Completo"></p>
 
 ### 📌Grafos Ciclos 
