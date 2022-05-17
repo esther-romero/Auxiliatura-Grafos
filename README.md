@@ -194,36 +194,32 @@ _Verifica si la estructura de un grafo es considerado como Grafo Rueda_
 @return true/false - true si el Grafo es Rueda, false si no es Grafo Rueda
 ```
 
-## 4) Casos especiales 📖
-
-_En proceso XD_
-  
-## 5) Ejecutando Pruebas ⚙️
+## 4) Ejecutando Pruebas - DEMO ⚙️
 
 _**Grafo 1:**_  
   
 <p align="center"><img width="250" src="https://github.com/esther-romero/Auxiliatura-Grafos/blob/main/img/Grafo%201.png" alt="Imagen Grafo 1"></p>
   
-_Resultados Grafo 1:_ 
+_**Resultados Grafo 1:**_ 
 
-<p align="center"><img width="250" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%201.png" alt="Imagen Resultado Grafo 1"></p>    
+<p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%201.png" alt="Imagen Resultado Grafo 1"></p>    
 
 _**Grafo 2:**_  
   
 <p align="center"><img width="300" src="https://github.com/esther-romero/Auxiliatura-Grafos/blob/main/img/Grafo%202.png" alt="Imagen Grafo 2"></p>
   
-_Resultados Grafo 2:_ 
+_**Resultados Grafo 2:**_ 
 
-<p align="center"><img width="250" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%202.png" alt="Imagen Resultado Grafo 2"></p>
+<p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%202.png" alt="Imagen Resultado Grafo 2"></p>
     
 _**Grafo 3:**_  
   
 <p align="center"><img width="250" src="https://github.com/esther-romero/Auxiliatura-Grafos/blob/main/img/Grafo%203.png" alt="Imagen Grafo 3"></p>
   
-_Resultados Grafo 3:_ 
+_**Resultados Grafo 3:**_ 
 
-<p align="center"><img width="250" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P1).png" alt="Imagen Resultado Grafo 3"></p>
-<p align="center"><img width="250" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P2).png" alt="Imagen Resultado Grafo 3"></p>    
+<p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P1).png" alt="Imagen Resultado Grafo 3"></p>
+<p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P2).png" alt="Imagen Resultado Grafo 3"></p>    
     
 ## 5) Analizando las Pruebas con casos especiales ⚙️
   
