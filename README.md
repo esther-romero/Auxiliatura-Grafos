@@ -223,7 +223,7 @@ _**Grafo 3:**_
 _**Resultados Grafo 3:**_ 
 
 <p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P1).png" alt="Imagen Resultado Grafo 3"></p>
-<p align="center"><img width="300" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P2).png" alt="Imagen Resultado Grafo 3"></p>    
+<p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P2).png" alt="Imagen Resultado Grafo 3"></p>    
     
 ## 5) Analizando las Pruebas con casos especiales ⚙️
   
