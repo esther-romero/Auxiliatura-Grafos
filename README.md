@@ -194,11 +194,7 @@ _Verifica si la estructura de un grafo es considerado como Grafo Rueda_
 @return true/false - true si el Grafo es Rueda, false si no es Grafo Rueda
 ```
 
-## 4) Casos especiales 📖
-
-_En proceso XD_
-  
-## 5) Ejecutando Pruebas ⚙️
+## 4) Ejecutando Pruebas - DEMO ⚙️
 
 _**Grafo 1:**_  
   
