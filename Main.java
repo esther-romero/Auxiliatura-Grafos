@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-
 public class Main {
     public static void main(String [] args){
+        //Grafo 3:
         ListADJ ladj = new ListADJ(false,5);
         
         ladj.insertarArista(0,1);
@@ -14,6 +14,7 @@ public class Main {
         ladj.insertarArista(2,3);
         ladj.insertarArista(2,4);
         ladj.insertarArista(3,4);
+
 
         System.out.println("Numero de vertices: " + ladj.getNumVertices());
         System.out.println("Numero de aristas: "+ ladj.getNumAristas());
@@ -41,3 +42,27 @@ public class Main {
         System.out.println("Existe un bucle en el grafo: "+ ladj.existeBucle());    
     }
 }
+
+/*
+        // Grafo 1:
+
+        ListADJ ladj = new ListADJ(true,4);
+
+        ladj.insertarArista(0,1,3);
+        ladj.insertarArista(2,1,6);
+        ladj.insertarArista(2,0,6);
+        ladj.insertarArista(3,0,3);
+        ladj.insertarArista(3,1,2);
+        ladj.insertarArista(3,2,10);
+    
+        //Grafo 2:
+
+        ListADJ ladj = new ListADJ(false,4);
+        ladj.insertarArista(0,1);
+        ladj.insertarArista(0,3);
+        ladj.insertarArista(0,2);
+        ladj.insertarArista(1,3);
+        ladj.insertarArista(1,2);
+        ladj.insertarArista(2,3);
+    
+    */
