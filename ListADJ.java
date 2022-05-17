@@ -75,7 +75,7 @@ public class ListADJ extends Grafo {
     }
     
     public void dibujarGrafo(){
-        System.out.println("\nNodo -- peso -- Nodo\n");
+        System.out.println("Nodo -- peso -- Nodo");
         for(int i=0; i<adj.length;i++){
             for (Arista u : adj[i]){
                 System.out.println(" "+i+"----"+u.getPeso()+"---->"+u.getDestino());
@@ -100,7 +100,18 @@ public class ListADJ extends Grafo {
     }
     
     public boolean esCompleto(){
-        return ((numNodos*(numNodos-1))==numEdges)? true:false;
+        return ((numNodos*(numNodos-1))==limpiarDuplicados())? true:false;
+    }
+
+    private int limpiarDuplicados(){
+        int res=0;
+        for(int i=0;i<adj.length;i++){
+            for(Arista a : adj[i]){
+                if(a.getDestino() != i) 
+                    res++;
+            }
+        }
+        return res;
     }
 
     public boolean existeBucle(){
@@ -156,7 +167,7 @@ public class ListADJ extends Grafo {
     }
     
     public boolean esGrafoRueda(){
-        return (numNodos-1)*4 == numEdges;
+        return (numNodos-1)*4 == limpiarDuplicados();
     }
     public class Arista {
         private int    destino;
