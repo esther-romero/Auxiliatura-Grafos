@@ -39,7 +39,7 @@ _**Grafos dirigidos/no dirigido:** se considera grafo rueda cuando el grado de c
 
 ## 2) Explicación de Clases 📖
 
-_Se cuenta con tres clases: Clase Abstracta Grafo, Clase ListADJ y Clase Main_
+_Se cuenta con cuatro clases: Clase Abstracta Grafo, Clase ListADJ, Clase Arista y Clase Main_
 
 
 <p align="center"><img width="350" src="https://github.com/esther-romero/Auxiliatura-Grafos/blob/main/img/Estructura.png" alt="Imagen Estructura"></p>
@@ -61,6 +61,15 @@ public class ListADJ extends Grafo {
     private boolean[] vis;
     private int recorrido[];
 }    
+```
+
+_**Clase Arista:** Es la clase que se encarga de la representación de una arista, contando con dos atributos principales, el destino y peso._
+
+```
+public class Arista {
+        private int    destino;
+        private double peso;
+}        
 ```
 
 _**Clase Main:** Es la clase principal, por donde hacemos correr todos los metodos implementados en nuestra clase ListADJ._
@@ -220,12 +229,9 @@ _**Resultados Grafo 3:**_
 
 <p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P1).png" alt="Imagen Resultado Grafo 3"></p>
 <p align="center"><img width="500" src="https://github.com/esther-romero/Auxiliatura-Teoria-de-Grafos/blob/main/img/Resultado%20Grafo%203%20(P2).png" alt="Imagen Resultado Grafo 3"></p>    
-    
-## 5) Analizando las Pruebas con casos especiales ⚙️
-  
 
 
-## Construido con 🛠️
+## 5) Construido con 🛠️
 
 _Herramientas que se utilizaron para el proyecto_
 
